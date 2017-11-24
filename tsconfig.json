@@ -11,8 +11,6 @@
     "noUnusedParameters": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "importHelpers": true,
-    "noEmitHelpers": true,
     "module": "commonjs",
     "target": "es2016",
     "lib": [

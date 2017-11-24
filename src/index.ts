@@ -20,13 +20,15 @@ export async function fork(command: string, args: string[], options: ForkOptions
 
     const child = child_process.fork(command, args, options);
 
-    child.stdout.on('data', (data) => {
-      if (Buffer.isBuffer(data)) {
-        buffers.push(data);
-      } else if (typeof data === 'string') {
-        buffers.push(Buffer.from(data, 'utf-8'));
-      }
-    });
+    if (child.stdout !== null) {
+      child.stdout.on('data', (data) => {
+        if (Buffer.isBuffer(data)) {
+          buffers.push(data);
+        } else if (typeof data === 'string') {
+          buffers.push(Buffer.from(data, 'utf-8'));
+        }
+      });
+    }
 
     child.on('close', () => {
       resolve(Buffer.concat(buffers).toString('utf-8').trim());
@@ -43,6 +45,7 @@ export async function fork(command: string, args: string[], options: ForkOptions
  * @returns {Promise<string>}
  */
 export async function pack(packagename: string, cwd: string) {
+  await asyncMkdirp(cwd);
   return await fork(npmPath, ['pack', packagename], {
     cwd: cwd,
     execArgv: [],

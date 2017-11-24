@@ -1,0 +1,17 @@
+{
+  "name": "electron-package-manager",
+  "version": "1.0.0",
+  "description": "Dynamically install and require modules in electron",
+  "main": "index.js",
+  "repository": "git@github.com:getstation/electron-package-manager.git",
+  "author": "Joël Charles <joel@getstation.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "npm": "^5.5.1",
+    "tar": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/tar": "^4.0.0"
+  }
+}

@@ -3,19 +3,20 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as tar from 'tar';
 import * as mkdirp from 'mkdirp';
+import { ForkOptions } from 'child_process';
 
 const npmPath = require.resolve('npm/bin/npm-cli');
 
 /**
  * async/await version `child_process.fork` that returns stdout as a string
- * @param command
- * @param args
- * @param options
+ * @param {string} command
+ * @param {string[]} args
+ * @param {"child_process".ForkOptions} options
  * @returns {Promise<string>}
  */
-export async function fork(command, args, options): Promise<string> {
-  return new Promise((resolve, reject) => {
-    let buffers = [];
+export async function fork(command: string, args: string[], options: ForkOptions) {
+  return new Promise<string>((resolve, reject) => {
+    let buffers: Buffer[] = [];
 
     const child = child_process.fork(command, args, options);
 
@@ -37,19 +38,19 @@ export async function fork(command, args, options): Promise<string> {
 
 /**
  * Run `npm pack` command to download a tgz of the package
- * @param packagename
- * @param cwd
+ * @param {string} packagename
+ * @param {string} cwd
  * @returns {Promise<string>}
  */
-export async function pack(packagename, cwd) {
-  return fork(npmPath, ['pack', packagename], {
+export async function pack(packagename: string, cwd: string) {
+  return await fork(npmPath, ['pack', packagename], {
     cwd: cwd,
     execArgv: [],
     silent: true
   });
 }
 
-async function asyncMkdirp(dir) {
+async function asyncMkdirp(dir: string) {
   return new Promise((resolve, reject) => {
     mkdirp(dir, e => {
       if (e) return reject(e);
@@ -58,7 +59,7 @@ async function asyncMkdirp(dir) {
   });
 }
 
-async function asyncUnlink(filepath) {
+async function asyncUnlink(filepath: string) {
   return new Promise((resolve, reject) => {
     fs.unlink(filepath, e => {
       if (e) return reject(e);
@@ -73,12 +74,12 @@ async function asyncUnlink(filepath) {
  * // Usage
  * const extractdir = await extract('color', '/tmp/', '/tmp/color-2.0.0.tgz')
  * require(extractdir)
- * @param packagename
- * @param cwd
- * @param filepath
+ * @param {string} packagename
+ * @param {string} cwd
+ * @param {string} filepath
  * @returns {Promise<string>}
  */
-export async function extract(packagename, cwd, filepath) {
+export async function extract(packagename: string, cwd: string, filepath: string) {
   const extractdir = path.join(cwd, packagename);
   await asyncMkdirp(extractdir);
   await tar.x({

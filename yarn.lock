@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@types/mkdirp@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@types/mkdirp/-/mkdirp-0.5.1.tgz#ea887cd024f691c1ca67cce20b7606b053e43b0f"
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*":
   version "8.0.53"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.53.tgz#396b35af826fa66aad472c8cb7b8d5e277f4e6d8"
@@ -2043,6 +2049,14 @@ tough-cookie@~2.3.3:
   dependencies:
     punycode "^1.4.1"
 
+tsc@^1.20150623.0:
+  version "1.20150623.0"
+  resolved "https://registry.yarnpkg.com/tsc/-/tsc-1.20150623.0.tgz#4ebc3c774e169148cbc768a7342533f082c7a6e5"
+
+tslib@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.0.tgz#dc604ebad64bcbf696d613da6c954aa0e7ea1eb6"
+
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
@@ -2056,6 +2070,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typescript@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.1.tgz#ef39cdea27abac0b500242d6726ab90e0c846631"
 
 uid-number@0.0.6:
   version "0.0.6"

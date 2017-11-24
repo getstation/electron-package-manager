@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "removeComments": false,
+    "declaration": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "module": "commonjs",
+    "target": "es2016",
+    "lib": [
+      "es2017"
+    ]
+  },
+  "include": [
+    "src/*.ts"
+  ]
+}

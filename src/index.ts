@@ -91,7 +91,7 @@ export async function extract(packagename: string, cwd: string, filepath: string
     strip: 1
   });
   await asyncUnlink(filepath);
-  await fork(npmPath, ['install', '--no-save', '--no-package-lock', '--production'], {
+  await fork(npmPath, ['install', '--no-save', '--no-package-lock', '--silent', '--production'], {
     cwd: extractdir,
     execArgv: []
   });

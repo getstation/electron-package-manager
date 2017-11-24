@@ -8,7 +8,8 @@
   "author": "Joël Charles <joel@getstation.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p ./ --outDir lib"
+    "build": "tsc -p ./ --outDir lib",
+    "prepublishOnly": "tsc -p ./ --outDir lib"
   },
   "dependencies": {
     "mkdirp": "^0.5.1",
